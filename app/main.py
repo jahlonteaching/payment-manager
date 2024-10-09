@@ -7,7 +7,7 @@ from app.payment import Payment, CreditCardPayment, BankTransferPayment, Electro
 
 def process_payment_method(payment: Payment, amount: float):
     payment_successful = False
-    print("INFO: Iniciando proceso de pago.")
+    print(f"INFO: Iniciando proceso de pago - {type(payment).__name__}")
     for _ in range(3):
         print(".", end="", flush=True)
         time.sleep(0.5)
@@ -31,7 +31,8 @@ def process_payment_method(payment: Payment, amount: float):
 
 
 if __name__ == "__main__":
-    bank_account = "BANK123" if random.randint(0, 1) else "INVALID"
-    payment_methods = [CreditCardPayment(1000), BankTransferPayment(bank_account), ElectronicWalletPayment()]
-    amount_to_pay = random.randint(500, 1500)
-    process_payment_method(random.choice(payment_methods), amount_to_pay)
+    while continue_exec := input("¿Desea continuar? (s/n): ").lower() == "s":
+        bank_account = "BANK123" if random.randint(0, 1) else "INVALID"
+        payment_methods = [CreditCardPayment(1000), BankTransferPayment(bank_account), ElectronicWalletPayment()]
+        amount_to_pay = random.randint(500, 1500)
+        process_payment_method(random.choice(payment_methods), amount_to_pay)
