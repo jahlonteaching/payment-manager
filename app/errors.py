@@ -1,27 +1,24 @@
 class PaymentManagerError(Exception):
-    """Base class for exceptions in this module."""
+    """Clase base para excepciones en el módulo payment-manager."""
     pass
 
 
 class CreditCardError(PaymentManagerError):
-    """Exception raised for errors in the credit card number.
-
-    Attributes:
-        message -- explanation of the error
     """
+    Excepción lanzada para errores en la tarjeta de crédito.
+    """
+    pass
 
 
 class TransferError(PaymentManagerError):
-    """Exception raised for errors in the bank transfer.
-
-    Attributes:
-        message -- explanation of the error
     """
+    Excepción lanzada para errores en la transferencia bancaria.
+    """
+    pass
 
 
 class InsufficientFundsError(PaymentManagerError):
-    """Exception raised for errors in the insufficient funds.
-
-    Attributes:
-        message -- explanation of the error
     """
+    Excepción lanzada para errores de fondos insuficientes.
+    """
+    pass
